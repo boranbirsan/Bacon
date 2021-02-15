@@ -6,7 +6,10 @@ extern Bacon::Application* Bacon::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	printf("Initialize Bacon Engine!\n");
+	Bacon::Log::Init();
+	BN_CORE_WARN("Initialized Core Log!");
+	BN_CLIENT_CRITICAL("Initialized Client Log!");
+
 	auto client = Bacon::CreateApplication();
 	client->Run();
 	delete client;
