@@ -6,6 +6,5 @@
 #include "Bacon/Log.h"
 
 // ---ENTRY POINT--------------------------------
-#include <stdio.h>
 #include "Bacon/EntryPoint.h"
 // ----------------------------------------------
