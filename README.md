@@ -3,7 +3,7 @@
 This project is my introduction into the field of game engine development.
 I will be following some guides in the beginning, namely The Cherno's Hazel game engine series on youtube. Links to all of those sources will be provided.
 
-#####Logging
+##### Logging
 Logging information is handled using the Spdlog library.
 
 ### Acknowledgement
