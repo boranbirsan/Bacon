@@ -4,6 +4,9 @@
     <Filter Include="Bacon">
       <UniqueIdentifier>{0836E00C-744A-08BE-3DCC-AB1DA99F04EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bacon\Events">
+      <UniqueIdentifier>{ECC84BE1-D82B-DB85-81B1-133C6DF3A608}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Bacon.h" />
@@ -15,6 +18,15 @@
     </ClInclude>
     <ClInclude Include="src\Bacon\EntryPoint.h">
       <Filter>Bacon</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Events\Event.h">
+      <Filter>Bacon\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Events\KeyEvent.h">
+      <Filter>Bacon\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bacon\Events\MouseEvent.h">
+      <Filter>Bacon\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Bacon\Log.h">
       <Filter>Bacon</Filter>
