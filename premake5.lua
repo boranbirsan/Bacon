@@ -13,7 +13,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Bacon/vendor/GLFW/include"
 
-include "Hazel/vendor/GLFW"
+include "Bacon/vendor/GLFW"
 
 project "Bacon"
 	location "Bacon"
