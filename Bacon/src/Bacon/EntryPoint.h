@@ -7,8 +7,8 @@ extern Bacon::Application* Bacon::CreateApplication();
 int main(int argc, char** argv)
 {
 	Bacon::Log::Init();
-	BN_CORE_WARN("Initialized Core Log!");
-	BN_CLIENT_CRITICAL("Initialized Client Log!");
+	BN_CORE_INFO("Initialized Core Log!");
+	BN_CLIENT_INFO("Initialized Client Log!");
 
 	auto client = Bacon::CreateApplication();
 	client->Run();

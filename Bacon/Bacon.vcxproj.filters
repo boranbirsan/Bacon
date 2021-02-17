@@ -7,6 +7,12 @@
     <Filter Include="Bacon\Events">
       <UniqueIdentifier>{ECC84BE1-D82B-DB85-81B1-133C6DF3A608}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Bacon.h" />
@@ -31,6 +37,13 @@
     <ClInclude Include="src\Bacon\Log.h">
       <Filter>Bacon</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\Window.h">
+      <Filter>Bacon</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bnpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Application.cpp">
@@ -39,5 +52,9 @@
     <ClCompile Include="src\Bacon\Log.cpp">
       <Filter>Bacon</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bnpch.cpp" />
   </ItemGroup>
 </Project>

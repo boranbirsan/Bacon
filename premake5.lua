@@ -10,6 +10,11 @@ workspace "Bacon"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Bacon/vendor/GLFW/include"
+
+include "Hazel/vendor/GLFW"
+
 project "Bacon"
 	location "Bacon"
 	kind "SharedLib"
@@ -17,6 +22,9 @@ project "Bacon"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "bnpch.h"
+	pchsource "Bacon/src/bnpch.cpp"
 	
 	files
 	{
@@ -27,7 +35,14 @@ project "Bacon"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
