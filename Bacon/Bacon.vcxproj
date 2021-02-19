@@ -153,6 +153,7 @@
     <ClInclude Include="src\Bacon\Application.h" />
     <ClInclude Include="src\Bacon\Core.h" />
     <ClInclude Include="src\Bacon\EntryPoint.h" />
+    <ClInclude Include="src\Bacon\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Bacon\Events\Event.h" />
     <ClInclude Include="src\Bacon\Events\KeyEvent.h" />
     <ClInclude Include="src\Bacon\Events\MouseEvent.h" />

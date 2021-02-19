@@ -1,6 +1,10 @@
 #include "bnpch.h"
 #include "WindowsWindow.h"
 
+#include "Bacon/Events/ApplicationEvent.h"
+#include "Bacon/Events/KeyEvent.h"
+#include "Bacon/Events/MouseEvent.h"
+
 namespace Bacon
 {
 	Window* Window::Create(const WindowProps& props)
@@ -15,7 +19,7 @@ namespace Bacon
 
 	WindowsWindow::~WindowsWindow()
 	{
-
+		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
@@ -31,6 +35,96 @@ namespace Bacon
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
+
+
+		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.Width = width;
+			data.Height = height;
+
+			if (width == 0 && height == 0) 
+			{
+				WindowMinimizeEvent event;
+				data.EventCallback(event);
+			}else 
+			{
+				WindowResizeEvent event(width, height);
+				data.EventCallback(event);
+			}
+		});
+
+		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) 
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			WindowCloseEvent event;
+			data.EventCallback(event);
+		});
+
+		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) 
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			switch (action)
+			{
+				case GLFW_PRESS:
+				{
+					KeyPressedEvent event(key);
+					data.EventCallback(event);
+					break;
+				}
+				case GLFW_RELEASE:
+				{
+					KeyReleasedEvent event(key);
+					data.EventCallback(event);
+					break;
+				}
+				case GLFW_REPEAT:
+				{
+					KeyPressedEvent event(key);
+					data.EventCallback(event);
+					break;
+				}
+			}
+		});
+
+		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) 
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			switch (action)
+			{
+				case GLFW_PRESS:
+				{
+					ButtonPressedEvent event(button);
+					data.EventCallback(event);
+					break;
+				}
+				case GLFW_RELEASE:
+				{
+					ButtonReleasedEvent event(button);
+					data.EventCallback(event);
+					break;
+				}
+			}
+		});
+
+		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xoffset, double yoffset)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			MouseScrolledEvent event((float)xoffset, (float)yoffset);
+			data.EventCallback(event);
+		});
+
+		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xpos, double ypos)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			MouseMovedEvent event((float)xpos, (float)ypos);
+			data.EventCallback(event);
+		});
 	}
 
 	void WindowsWindow::Shutdown()
@@ -54,7 +148,7 @@ namespace Bacon
 		m_Data.VSync = enabled;
 	}
 
-	bool WindowsWindow::IsInVSync() const {
+	bool WindowsWindow::IsVSync() const{
 		return m_Data.VSync;
 	}
 }

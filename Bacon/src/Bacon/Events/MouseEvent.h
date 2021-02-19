@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Bacon
 {
 	class BACON_API MouseMovedEvent : public Event

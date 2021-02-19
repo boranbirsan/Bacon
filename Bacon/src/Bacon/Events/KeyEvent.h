@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Bacon
 {
 	class BACON_API KeyEvent : public Event
@@ -31,6 +29,7 @@ namespace Bacon
 		}
 
 		EVENT_CLASS_TYPE(KeyPressed)
+		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	private:
 	};
 
@@ -47,6 +46,7 @@ namespace Bacon
 		}
 
 		EVENT_CLASS_TYPE(KeyReleased)
+		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	private:
 	};
 }

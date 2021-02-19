@@ -44,6 +44,7 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\bnpch.h" />
+    <ClInclude Include="src\Bacon\Events\ApplicationEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Application.cpp">
