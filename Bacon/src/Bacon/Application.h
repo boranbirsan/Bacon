@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Window.h"
+#include "LayerStack.h"
 
 namespace Bacon
 {
@@ -12,10 +13,14 @@ namespace Bacon
 		virtual ~Application();
 
 		void Run();
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
 	private:
 		void OnEvent(Event& event);
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
 	};
 
 	Application* CreateApplication(); 

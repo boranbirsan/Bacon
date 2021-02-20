@@ -35,6 +35,8 @@ namespace Bacon
 	class BACON_API Event
 	{
 	public:
+		bool m_Handled = false;
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -44,8 +46,6 @@ namespace Bacon
 		{
 			return GetCategoryFlags() & category;
 		}
-	protected:
-		bool m_Handled = false;
 	};
 
 	inline std::ostream& operator<<(std::ostream& os, const Event& e)
