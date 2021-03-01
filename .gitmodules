@@ -4,3 +4,6 @@
 [submodule "Bacon/vendor/GLFW"]
 	path = Bacon/vendor/GLFW
 	url = https://github.com/boranbirsan/glfw
+[submodule "Bacon/vendor/imgui"]
+	path = Bacon/vendor/imgui
+	url = https://github.com/boranbirsan/imgui
