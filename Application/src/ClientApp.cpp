@@ -4,13 +4,13 @@ class ExampleLayer : public Bacon::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example") {}
+		: Layer("Example Layer") {}
 
 	void OnUpdate() override {}
 
 	void OnEvent(Bacon::Event& event) override 
 	{
-		BN_CLIENT_TRACE("{0}", event);
+		BN_CLIENT_TRACE("{0}: {1}", GetName(), event);
 	}
 };
 
@@ -20,6 +20,7 @@ public:
 	Client()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Bacon::ImGuiLayer());
 	}
 
 	~Client()

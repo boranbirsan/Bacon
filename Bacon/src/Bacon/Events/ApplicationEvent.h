@@ -17,6 +17,9 @@ namespace Bacon
 			return ss.str();
 		}
 
+		unsigned int GetWidth() { return m_Width; }
+		unsigned int GetHeight() { return m_Height; }
+
 		EVENT_CLASS_TYPE(WindowResize);
 		EVENT_CLASS_CATEGORY(EventCategoryApplication);
 	private:

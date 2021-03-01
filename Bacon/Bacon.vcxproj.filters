@@ -7,6 +7,9 @@
     <Filter Include="Bacon\Events">
       <UniqueIdentifier>{ECC84BE1-D82B-DB85-81B1-133C6DF3A608}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bacon\ImGui">
+      <UniqueIdentifier>{32118BD8-9EC6-03CE-27BB-FDA4936FFAD1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -37,6 +40,9 @@
     <ClInclude Include="src\Bacon\Events\MouseEvent.h">
       <Filter>Bacon\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bacon\ImGui\ImGuiLayer.h">
+      <Filter>Bacon\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Bacon\Layer.h">
       <Filter>Bacon</Filter>
     </ClInclude>
@@ -53,10 +59,14 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\bnpch.h" />
+    <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Bacon\Application.cpp">
       <Filter>Bacon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bacon\ImGui\ImGuiLayer.cpp">
+      <Filter>Bacon\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Bacon\Layer.cpp">
       <Filter>Bacon</Filter>
@@ -71,5 +81,6 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\bnpch.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp" />
   </ItemGroup>
 </Project>

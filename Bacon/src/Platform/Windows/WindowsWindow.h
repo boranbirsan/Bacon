@@ -7,7 +7,6 @@
 
 namespace Bacon
 {
-
 	class WindowsWindow : public Window
 	{
 	public:

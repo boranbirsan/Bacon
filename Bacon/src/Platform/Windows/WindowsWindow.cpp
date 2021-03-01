@@ -5,6 +5,8 @@
 #include "Bacon/Events/KeyEvent.h"
 #include "Bacon/Events/MouseEvent.h"
 
+#include "glad/glad.h"
+
 namespace Bacon
 {
 	Window* Window::Create(const WindowProps& props)
@@ -28,14 +30,14 @@ namespace Bacon
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
-		BN_CORE_INFO("Creating window {0} sized ({1}, {2)", props.Title, props.Width, props.Height);
+		BN_CORE_INFO("Creating window {0} sized ({1}, {2})", props.Title, props.Width, props.Height);
 
 		int success = glfwInit();
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
-
 
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 		{
@@ -54,7 +56,7 @@ namespace Bacon
 			}
 		});
 
-		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) 
+		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 

@@ -32,7 +32,7 @@ namespace Bacon
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class BACON_API Event
+	class Event
 	{
 	public:
 		bool m_Handled = false;
@@ -46,6 +46,26 @@ namespace Bacon
 		{
 			return GetCategoryFlags() & category;
 		}
+	};
+
+	class EventDispatcher
+	{
+	public:
+		EventDispatcher(Event& event)
+			: m_Event(event) {}
+
+		template<typename T, typename F>
+		bool Compare(const F& func)
+		{
+			if (m_Event.GetEventType() == T::GetStaticType())
+			{
+				m_Event.m_Handled |= func(static_cast<T&>(m_Event));
+				return true;
+			}
+			return false;
+		}
+	private:
+		Event& m_Event;
 	};
 
 	inline std::ostream& operator<<(std::ostream& os, const Event& e)

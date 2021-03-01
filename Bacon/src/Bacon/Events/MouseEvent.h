@@ -53,6 +53,7 @@ namespace Bacon
 	class BACON_API MouseButtonEvent : public Event
 	{
 	public:
+		int GetMouseButton() { return m_Button; }
 	protected:
 		MouseButtonEvent(int button)
 			: m_Button(button) {}

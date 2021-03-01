@@ -12,8 +12,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Bacon/vendor/GLFW/include"
+IncludeDir["Glad"] = "Bacon/vendor/Glad/include"
+IncludeDir["ImGui"] = "Bacon/vendor/imgui"
 
 include "Bacon/vendor/GLFW"
+include "Bacon/vendor/Glad"
+include "Bacon/vendor/imgui"
 
 project "Bacon"
 	location "Bacon"
@@ -36,12 +40,16 @@ project "Bacon"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -53,7 +61,8 @@ project "Bacon"
 		defines
 		{
 			"BN_PLATFORM_WINDOWS",
-			"BN_BUILD_DLL"
+			"BN_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
