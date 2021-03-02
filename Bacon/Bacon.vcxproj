@@ -161,11 +161,13 @@
     <ClInclude Include="src\Bacon\Events\KeyEvent.h" />
     <ClInclude Include="src\Bacon\Events\MouseEvent.h" />
     <ClInclude Include="src\Bacon\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Bacon\Input.h" />
     <ClInclude Include="src\Bacon\Layer.h" />
     <ClInclude Include="src\Bacon\LayerStack.h" />
     <ClInclude Include="src\Bacon\Log.h" />
     <ClInclude Include="src\Bacon\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\bnpch.h" />
   </ItemGroup>
@@ -176,6 +178,7 @@
     <ClCompile Include="src\Bacon\LayerStack.cpp" />
     <ClCompile Include="src\Bacon\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\bnpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -195,4 +198,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>

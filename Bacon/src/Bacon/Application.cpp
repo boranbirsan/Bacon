@@ -1,6 +1,8 @@
 #include "bnpch.h"
 #include "Application.h"
 
+#include "Input.h"
+
 namespace Bacon
 {
 
@@ -17,7 +19,7 @@ namespace Bacon
 	Application::~Application()
 	{
 
-	}
+	} 
 
 	void Application::OnEvent(Event& event) 
 	{

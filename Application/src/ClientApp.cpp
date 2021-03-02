@@ -6,11 +6,15 @@ public:
 	ExampleLayer()
 		: Layer("Example Layer") {}
 
-	void OnUpdate() override {}
+	void OnUpdate() override 
+	{
+		auto [x, y] = Bacon::Input::GetMousePos();
+		BN_CLIENT_TRACE("{0}, {1}", x, y);
+	}
 
 	void OnEvent(Bacon::Event& event) override 
 	{
-		BN_CLIENT_TRACE("{0}: {1}", GetName(), event);
+		//BN_CLIENT_TRACE("{0}: {1}", GetName(), event);
 	}
 };
 
