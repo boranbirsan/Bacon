@@ -162,9 +162,11 @@
     <ClInclude Include="src\Bacon\Events\MouseEvent.h" />
     <ClInclude Include="src\Bacon\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Bacon\Input.h" />
+    <ClInclude Include="src\Bacon\KeyCodes.h" />
     <ClInclude Include="src\Bacon\Layer.h" />
     <ClInclude Include="src\Bacon\LayerStack.h" />
     <ClInclude Include="src\Bacon\Log.h" />
+    <ClInclude Include="src\Bacon\MouseButtonCodes.h" />
     <ClInclude Include="src\Bacon\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />

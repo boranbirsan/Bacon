@@ -23,6 +23,9 @@ namespace Bacon
 
 	void Application::OnEvent(Event& event) 
 	{
+		EventDispatcher dispatcher(event);
+		dispatcher.Compare<WindowCloseEvent>(std::bind(&Application::OnWindowClose, this, std::placeholders::_1));
+
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
 			(*--it)->OnEvent(event);
@@ -55,4 +58,9 @@ namespace Bacon
 		layer->OnAttach();
 	}
 
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
+	}
 }

@@ -8,13 +8,19 @@ public:
 
 	void OnUpdate() override 
 	{
-		auto [x, y] = Bacon::Input::GetMousePos();
-		BN_CLIENT_TRACE("{0}, {1}", x, y);
 	}
 
 	void OnEvent(Bacon::Event& event) override 
 	{
-		//BN_CLIENT_TRACE("{0}: {1}", GetName(), event);
+		BN_CLIENT_TRACE("{0}", event);
+
+		if (event.GetEventType() == Bacon::EventType::KeyPressed)
+		{
+			Bacon::KeyPressedEvent& e = (Bacon::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == BN_KEY_TAB)
+				BN_CLIENT_TRACE("Tab key is pressed (event)!");
+			BN_CLIENT_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 

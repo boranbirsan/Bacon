@@ -4,6 +4,8 @@
 #include "Window.h"
 #include "LayerStack.h"
 
+#include "Events/ApplicationEvent.h"
+
 namespace Bacon
 {
 	class BACON_API Application
@@ -21,6 +23,7 @@ namespace Bacon
 		inline Window& GetWindow() { return *m_Window; }
 	private:
 		void OnEvent(Event& event);
+		bool OnWindowClose(WindowCloseEvent& event);
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		LayerStack m_LayerStack;

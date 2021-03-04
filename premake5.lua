@@ -1,5 +1,6 @@
 workspace "Bacon"
 	architecture "x64"
+	startproject "Application"
 
 	configurations
 	{
