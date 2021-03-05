@@ -6,8 +6,6 @@
 #include "Bacon/Events/KeyEvent.h"
 #include "Bacon/Events/MouseEvent.h"
 
-#include "Bacon/Application.h"
-
 namespace Bacon 
 {
 	class BACON_API ImGuiLayer : public Layer
@@ -16,20 +14,13 @@ namespace Bacon
 		ImGuiLayer();
 		~ImGuiLayer();
 
-		void OnAttach();
-		void OnDetach();
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+		virtual void OnImGuiRender() override;
 
-		void OnUpdate();
-		void OnEvent(Event& event);
+		void Begin();
+		void End();
 	private:
-		bool OnMouseButtonPresssed(ButtonPressedEvent& event);
-		bool OnMouseButtonReleased(ButtonReleasedEvent& event);
-		bool OnMouseMoved(MouseMovedEvent& event);
-		bool OnMouseScroll(MouseScrolledEvent& event);
-		bool OnKeyPressed(KeyPressedEvent& event);
-		bool OnKeyReleased(KeyReleasedEvent& event);
-		bool OnWindowResize(WindowResizeEvent& event);
-
 		float m_Time = 0.0f;
 	};
 }

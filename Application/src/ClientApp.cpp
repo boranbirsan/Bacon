@@ -1,5 +1,7 @@
 #include <Bacon.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public Bacon::Layer
 {
 public:
@@ -8,6 +10,8 @@ public:
 
 	void OnUpdate() override 
 	{
+		if (Bacon::Input::IsKeyPressed(BN_KEY_TAB))
+			BN_CLIENT_TRACE("Tab key is pressed (poll)!");
 	}
 
 	void OnEvent(Bacon::Event& event) override 
@@ -22,6 +26,11 @@ public:
 			BN_CLIENT_TRACE("{0}", (char)e.GetKeyCode());
 		}
 	}
+
+	virtual void OnImGuiRender() override
+	{
+
+	}
 };
 
 class Client : public Bacon::Application
@@ -30,7 +39,6 @@ public:
 	Client()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Bacon::ImGuiLayer());
 	}
 
 	~Client()
